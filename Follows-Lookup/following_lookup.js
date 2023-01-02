@@ -4,14 +4,14 @@
 const needle = require('needle');
 
 // this is the ID for @TwitterDev
-const userId = 2244994945;
+const userId = 470067758;
 const url = `https://api.twitter.com/2/users/${userId}/following`;
-const bearerToken = process.env.BEARER_TOKEN;
+const bearerToken = 'AAAAAAAAAAAAAAAAAAAAAHXokwEAAAAAeD1kSztveLCpFORLmWks62l1HoU%3Dm2Ufm8cdDftM8Ez065zPrkZ0obyGdJoBtwraNUjxfQ0AUjVaOG';
 
 const getFollowing = async () => {
     let users = [];
     let params = {
-        "max_results": 1000,
+        "max_results": 100,
         "user.fields": "created_at"
     }
 
@@ -42,6 +42,11 @@ const getFollowing = async () => {
     }
 
     console.log(users);
+    i=0;
+    while(i<users.length){
+        console.log(users[i]);
+        i++;
+    }
     console.log(`Got ${users.length} users.`);
 
 }
