@@ -1,20 +1,25 @@
-const got = require('got');
-const crypto = require('crypto');
-const OAuth = require('oauth-1.0a');
-const qs = require('querystring');
-
-const readline = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+import got from 'got';
+import crypto from 'crypto';
+import OAuth from 'oauth-1.0a';
+import qs from 'querystring';
+import JSON from 'json'
+//const got = require('got');
+//const crypto = require('crypto');
+//const OAuth = require('oauth-1.0a');
+//const qs = require('querystring');
+import readline from 'readline';
+//const readline = require('readline').createInterface({
+  //input: process.stdin,
+ // output: process.stdout
+//});
 
 
 // The code below sets the consumer key and consumer secret from your environment variables
 // To set environment variables on macOS or Linux, run the export commands below from the terminal:
 // export CONSUMER_KEY='YOUR-KEY'
 // export CONSUMER_SECRET='YOUR-SECRET'
-const consumer_key = process.env.CONSUMER_KEY;
-const consumer_secret = process.env.CONSUMER_SECRET;
+const consumer_key = 'MrUUxeTkgqBIxoXPCASRYEFtf';
+const consumer_secret = 'KzkP887rk81Vxo7dXaVRP7DJtKqi3rLW0FkpiU8rhXVpFJHLNd';
 
 
 // Be sure to add replace the text of the with the text you wish to Tweet.
@@ -59,7 +64,7 @@ async function requestToken() {
     }
   });
   if (req.body) {
-    return qs.parse(req.body);
+   // return JSON.parse(req.body);
   } else {
     throw new Error('Cannot get an OAuth request token');
   }
@@ -81,7 +86,7 @@ async function accessToken({
     }
   });
   if (req.body) {
-    return qs.parse(req.body);
+   // return JSON.parse(req.body);
   } else {
     throw new Error('Cannot get an OAuth request token');
   }
